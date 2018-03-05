@@ -60,6 +60,7 @@ public class MyStackTest {
         int actual = stack.getTop();
 
         assertEquals(expected, actual);
+
     }
 
     @Test
