@@ -1,59 +1,59 @@
-package ch.hslu.ad.sw03_D1;
+package ch.hslu.ad.sw03_D1.Hashcode;
 
+import ch.hslu.ad.sw03_D1.DuplicateElementException;
 import org.apache.logging.log4j.LogManager;
 
 import java.util.NoSuchElementException;
 
-public class MyTree<T extends Comparable<T>> implements Tree<T>{
-    private final static org.apache.logging.log4j.Logger LOG = LogManager.getLogger(MyTree.class);
-    private Node<T> root;
+public class MyHashTree<K extends Comparable,V> implements Tree<K,V>{
+    private final static org.apache.logging.log4j.Logger LOG = LogManager.getLogger(MyHashTree.class);
+    private Node<K,V> root;
     private int size;
 
-    public MyTree() {
+    public MyHashTree() {
         this.size = 0;
     }
 
     @Override
-    public T search(T data) {
+    public V search(K key) {
         if (isEmpty()){
             throw new NoSuchElementException();
         } else {
-            return searchRec(root, data);
+            return searchRec(root, key);
         }
     }
 
-    private T searchRec(Node<T> node, T data){
+    private V searchRec(Node<K,V> node, K key) {
         if (node == null) {
             throw new NoSuchElementException();
         }
-        if (data.compareTo(node.getData()) == 0){
+        if (key.compareTo(node.getKey()) == 0){
             return node.getData();
-        } else if (data.compareTo(node.getData()) < 0 ){
-           return searchRec(node.getLeftChildNode(), data);
+        } else if (key.compareTo(node.getKey()) < 0 ){
+            return searchRec(node.getLeftChildNode(), key);
         } else { //grösser
-           return searchRec(node.getRightChildNode(), data);
+            return searchRec(node.getRightChildNode(), key);
         }
     }
 
     @Override
-    public void remove(T data) {
+    public void remove(K key) {
         if(isEmpty()){
             throw new NoSuchElementException();
         } else {
-            removeRec(root, data);
+            removeRec(root, key);
         }
         size--;
     }
 
-    private Node<T> removeRec(Node<T> node, T data){
+    private Node<K, V> removeRec(Node<K,V> node, K key){
         if (node == null) {
             throw new NoSuchElementException();
         }
-
-        if (data.compareTo(node.getData()) < 0 ){
-            node.leftChildNode = removeRec(node.getLeftChildNode(), data);
-        } else if(data.compareTo(node.getData()) > 0) {
-            node.rightChildNode = removeRec(node.getRightChildNode(), data);
+        if (key.compareTo(node.getKey()) < 0 ){
+            node.leftChildNode = removeRec(node.getLeftChildNode(), key);
+        } else if(key.compareTo(node.getKey()) > 0) {
+            node.rightChildNode = removeRec(node.getRightChildNode(), key);
         } else {
             if (node.getLeftChildNode() == null && node.getRightChildNode() == null){
                 return null;
@@ -64,24 +64,24 @@ public class MyTree<T extends Comparable<T>> implements Tree<T>{
             if (node.getRightChildNode() == null) {
                 return node.getLeftChildNode();
             }
-            T smallestNodeRightSide = findSmallestNodeRightSide(node.getRightChildNode());
-            node.data = smallestNodeRightSide;
-            node.rightChildNode = removeRec(node.getRightChildNode(), smallestNodeRightSide);
+            Node<K, V> smallestNodeRightSide = findSmallestNodeRightSide(node.getRightChildNode());
+            node.data = smallestNodeRightSide.getData();
+            node.rightChildNode = removeRec(node.getRightChildNode(), smallestNodeRightSide.getKey());
         }
         return node;
     }
 
-    private T findSmallestNodeRightSide(Node<T> node){
+    private Node<K, V> findSmallestNodeRightSide(Node<K, V> node){
         if (node.getLeftChildNode() == null) {
-            return node.getData();
+            return node;
         } else {
-           return findSmallestNodeRightSide(node.getLeftChildNode());
+            return findSmallestNodeRightSide(node.getLeftChildNode());
         }
     }
 
     @Override
-    public void add(T data) {
-        Node newNode = new Node(data);
+    public void add(K key, V data) {
+        Node newNode = new Node(key, data);
 
         if (isEmpty()){
             root = newNode;
@@ -91,16 +91,16 @@ public class MyTree<T extends Comparable<T>> implements Tree<T>{
         size++;
     }
 
-    private void addRec(Node<T> node, Node<T> newNode) {
-        if (newNode.getData().compareTo(node.getData()) == 0){
+    private void addRec(Node<K,V> node, Node<K,V> newNode) {
+        if (newNode.getKey().compareTo(node.getKey()) == 0){
             throw new DuplicateElementException("Element already exists");
-        } else if (newNode.getData().compareTo(node.getData()) < 0){
+        } else if (newNode.getKey().compareTo(node.getKey()) < 0){
             if (node.getLeftChildNode() == null) {
                 node.setLeftChildNode(newNode);
             } else {
                 addRec(node.getLeftChildNode(), newNode);
             }
-        } else if (newNode.getData().compareTo(node.getData()) > 0){
+        } else if (newNode.getKey().compareTo(node.getKey()) > 0){
             if (node.getRightChildNode() == null) {
                 node.setRightChildNode(newNode);
             } else {
@@ -145,11 +145,11 @@ public class MyTree<T extends Comparable<T>> implements Tree<T>{
         return size == 0;
     }
 
-    public Node<T> getRoot() {
+    public Node<K,V> getRoot() {
         return root;
     }
 
-    public void setRoot(Node<T> root) {
+    public void setRoot(Node<K,V> root) {
         this.root = root;
     }
 
