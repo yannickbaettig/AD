@@ -1,4 +1,4 @@
-package ch.hslu.ad.sw03_D1;
+package ch.hslu.ad.sw03_D2;
 
 import org.apache.logging.log4j.LogManager;
 

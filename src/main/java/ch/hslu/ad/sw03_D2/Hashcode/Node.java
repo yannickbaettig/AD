@@ -1,4 +1,4 @@
-package ch.hslu.ad.sw03_D1.Hashcode;
+package ch.hslu.ad.sw03_D2.Hashcode;
 
 import java.util.Objects;
 

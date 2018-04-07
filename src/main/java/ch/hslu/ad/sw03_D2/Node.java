@@ -1,4 +1,4 @@
-package ch.hslu.ad.sw03_D1;
+package ch.hslu.ad.sw03_D2;
 
 public class Node<T extends Comparable<T>> {
     T data;

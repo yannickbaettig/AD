@@ -1,6 +1,4 @@
-package ch.hslu.ad.sw03_D1.Hashcode;
-
-import ch.hslu.ad.sw03_D1.Hashcode.Node;
+package ch.hslu.ad.sw03_D2.Hashcode;
 
 public interface Tree<K extends Comparable,V> {
 

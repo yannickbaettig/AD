@@ -1,6 +1,6 @@
-package ch.hslu.ad.sw03_D1.Hashcode;
+package ch.hslu.ad.sw03_D2.Hashcode;
 
-import ch.hslu.ad.sw03_D1.DuplicateElementException;
+import ch.hslu.ad.sw03_D2.DuplicateElementException;
 import org.apache.logging.log4j.LogManager;
 
 import java.util.NoSuchElementException;
