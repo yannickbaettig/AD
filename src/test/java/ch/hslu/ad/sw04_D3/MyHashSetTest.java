@@ -27,8 +27,6 @@ public class MyHashSetTest {
         allocation3 = new Allocation(10,34);
         allocation4 = new Allocation(10,45);
         allocation5 = new Allocation(10,56);
-
-
     }
 
     @Test
