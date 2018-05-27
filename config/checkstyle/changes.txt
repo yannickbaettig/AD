@@ -10,4 +10,4 @@ JavaDocVariable:
    <property name="excludeScope" value="private" />
    
 LineLength:
-   <property name="max" value="120" />
+   <property name="right" value="120" />

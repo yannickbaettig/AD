@@ -29,7 +29,7 @@
                 </p>
                 <p>
                     <macro name="snippet">
-                        <param name="file" value="readme.md" />
+                        <param name="dir" value="readme.md" />
                     </macro>
                 </p>
             </subsection>

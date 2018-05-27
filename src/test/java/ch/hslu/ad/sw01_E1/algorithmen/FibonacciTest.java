@@ -27,8 +27,8 @@ public class FibonacciTest {
 
     @Test
     public void testFiboRec_1() {
-        int result = Fibonacci.fiboRec1(30);
-        int expected = 832040;
+        int result = Fibonacci.fiboRec1(40);
+        int expected = 102334155;
         assertEquals(expected, result);
     }
 
@@ -48,8 +48,8 @@ public class FibonacciTest {
 
     @Test
     public void testFiboRec2_1() {
-        long result = Fibonacci.fiboRec2(30);
-        long expected = 832040;
+        long result = Fibonacci.fiboRec2(40);
+        long expected = 102334155;
         assertEquals(expected, result);
     }
 
@@ -70,8 +70,8 @@ public class FibonacciTest {
 
     @Test
     public void testFiboIter1() {
-        int result = Fibonacci.fiboIter(30);
-        int expected = 832040;
+        int result = Fibonacci.fiboIter(40);
+        int expected = 102334155;
         assertEquals(expected, result);
     }
 

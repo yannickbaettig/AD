@@ -11,7 +11,7 @@ import static org.junit.Assert.assertEquals;
 public class SortTest {
     private final static org.apache.logging.log4j.Logger LOG = LogManager.getLogger(SortTest.class);
     private Sort sort;
-    private int max = 1000;
+    private int max = 10000;
     private Integer[] arrayRandom = new Integer[max];
     private Integer[] arraySorted = new Integer[max];
     private Integer[] arrayInverted = new Integer[max];
