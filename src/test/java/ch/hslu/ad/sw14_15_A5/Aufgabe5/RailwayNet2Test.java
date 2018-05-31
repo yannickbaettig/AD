@@ -10,6 +10,7 @@ public class RailwayNet2Test {
     private final static org.apache.logging.log4j.Logger LOG = LogManager.getLogger(RailwayNet2Test.class);
     RailwayNet2 rn;
 
+
     @Before
     public void before(){
         rn = new RailwayNet2();
