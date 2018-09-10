@@ -11,11 +11,11 @@ public final class Turf {
         for (int i = 1; i < 6; i++) {
             new Thread(new RaceHorse(starterBox),"Horse "+i).start();
         }
-        // Thread.sleep(5000);
-
-        starterBox.release();
-        starterBox.cancel();
+        Thread.sleep(5000);
         LOG.info("Start...");
+        starterBox.release();
+        //starterBox.cancel();
+
     }
 
 }

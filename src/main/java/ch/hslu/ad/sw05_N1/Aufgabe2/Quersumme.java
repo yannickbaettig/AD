@@ -17,14 +17,13 @@ public class Quersumme {
         Thread1.start();
         Thread2.start();
         Thread3.start();
-        Thread.sleep(500);
+        Thread.sleep(1000);
         Thread1.interrupt();
         Thread2.interrupt();
         Thread3.interrupt();
-       /* AdditionTask1.stopRequest();
+        /*AdditionTask1.stopRequest();
         AdditionTask2.stopRequest();
-        AdditionTask3.stopRequest();
-*/
+        AdditionTask3.stopRequest();*/
 
 
     }

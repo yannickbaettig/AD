@@ -40,8 +40,6 @@ public class Sort<T extends Comparable<T>>{
                     T temp = array[max];
                     array[max] = array[j];
                     array[j] = temp;
-                } else {
-                    max = j;
                 }
             }
         }

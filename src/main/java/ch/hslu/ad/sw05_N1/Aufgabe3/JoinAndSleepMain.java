@@ -5,7 +5,7 @@ public class JoinAndSleepMain {
     public static void main(String[] args) {
         Thread t3 = new Thread(new JoinAndSleep(null,4000,false));
         Thread t2 = new Thread(new JoinAndSleep(t3, 3000,false));
-        Thread t1 = new Thread(new JoinAndSleep(t2, 2000, true));
+        Thread t1 = new Thread(new JoinAndSleep(t2, 2000, false));
 
 
         t1.setName("Thread 1");

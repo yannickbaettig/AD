@@ -18,8 +18,8 @@ public class BankTransfers {
         targetBankAccounts.add(new BankAccount(100));
 
 
-        int number = 4;
-        int amount = 10000000;
+        int number = 2;
+        int amount = 10000;
 
         final Thread[] threads = new Thread[number * 2];
         amount = amount / number;

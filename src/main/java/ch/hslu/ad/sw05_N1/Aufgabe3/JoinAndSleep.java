@@ -25,19 +25,20 @@ public class JoinAndSleep implements Runnable{
 
     @Override
     public void run() {
-        LOG.info("run started " + Thread.currentThread().getState());
+        LOG.info("run started " + Thread.currentThread().getName() + " " + Thread.currentThread().getState());
         try {
             if (isStopped){
                 LOG.info("stop requested");
                 stopRequest();
             }
             if (referenceThread != null) {
+                LOG.info("waiting "+ Thread.currentThread().getName() + " " + Thread.currentThread().getState());
                 referenceThread.join();
-                LOG.info("reference Thread joined "+ referenceThread.getState());
+                LOG.info("reference Thread joined "+ referenceThread.getName() + " " + referenceThread.getState());
             }
             LOG.info("sleeping: " + sleepTime);
             Thread.sleep(sleepTime);
-            LOG.info("awake "+ Thread.currentThread().getState());
+            LOG.info("awake " + Thread.currentThread().getName() +" "+ Thread.currentThread().getState());
         } catch (InterruptedException e) {
             LOG.error("interrupted", e);
             //runThread.interrupt();

@@ -10,9 +10,8 @@ public class Latch implements Synch {
     public void acquire() throws InterruptedException {
         synchronized (synchObj) {
             threadsList.add(Thread.currentThread());
-            synchObj.wait(1000);
+            synchObj.wait(10000);
             }
-
     }
 
     @Override
